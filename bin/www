@@ -1,0 +1,123 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+let app = require('../app');
+let debug = require('debug')('a-game:server');
+let http = require('http');
+let session = require('express-session');
+require('dotenv').config();
+/**
+ * Get port from environment and store in Express.
+ */
+
+console.log('PORT:',process.env.PORT);
+let port = normalizePort(process.env.PORT);
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+let server = http.createServer(app);
+let io = require('socket.io').listen(server);
+
+
+io.on('connection', function(client) {
+	//console.log('session:', client.request.session )
+	client.on('join', function(data) {
+		//console.log(data);
+	});
+
+	client.on('messages', function(data) {
+
+		if(!client.request.session.passport) {
+			client.emit('broad', {message:'Log in for chatting', name:'Chat',date:new Date()});
+			return;
+		}
+		//let message = {message:data, date:new Date(), name:client.request.session.passport.user.name};
+		Chat.add(client.request.session.passport.user,data,function (message) {
+			client.broadcast.emit('broad', message);
+			message.me = true;
+			client.emit('broad', message);
+
+		});
+
+	});
+
+});
+
+io.use(function (socket, next) {
+	app.locals.session(socket.request, socket.request.res, next);
+});
+
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  let port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  let bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  let addr = server.address();
+  let bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

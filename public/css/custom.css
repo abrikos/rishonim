@@ -1,0 +1,38 @@
+@media (max-width: 1023px) {
+  body {
+    font-size: 0.8em !important; }
+    body .mobile-hide {
+      display: none; }
+    body #content {
+      width: 100%; } }
+@media (min-width: 1024px) {
+  #content {
+    width: 1024px; } }
+body div.row, body h1 {
+  margin-top: 40px !important; }
+body .square-croped {
+  width: 250px;
+  height: 250px;
+  background-position: center center;
+  background-repeat: no-repeat; }
+body .padding10 {
+  padding: 10px; }
+body #circles img {
+  width: 200px; }
+body .circle {
+  border-radius: 50%; }
+body #loading-image {
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 25px; }
+body #popup-message {
+  text-align: center;
+  font-size: 1.4em;
+  top: 50px;
+  left: 38.2%;
+  position: fixed;
+  z-index: 100000; }
+
+/*# sourceMappingURL=custom.css.map */

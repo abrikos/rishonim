@@ -1,0 +1,42 @@
+extends admin-layout
+block content
+	div.row
+		div.col-7
+			h1.text-right IT ARTICLE FOR PAGE =>
+			form#edit-article(enctype="multipart/form-data" method="post")
+				div.form-group
+					input#article-id.form-control(disabled=true value=id)
+				div.form-group
+					label(for="article-title") Title
+					textarea#article-title.form-control(name="title")=title
+				div.form-group
+					label(for="article-topic") Topic
+					input#article-topic.form-control(name="topic" value=topic)
+				div.form-group
+					label(for="article-link") Link
+					input#article-link.form-control(name="link" value=link)
+
+				div.form-group
+					label(for="article-body") Body
+					textarea#article-body.form-control(name="body")=body
+				div.form-group
+					label(for="article-order") Order
+					input#article-order.form-control(name="order" value=order type="number")
+				div.form-group
+					label(for="article-visible") Visible
+					input#article-visible.form-control(name="visible" type="checkbox" checked=visible)
+				div.form-group
+					label(for="article-photo") Photo
+					input#article-photo.form-control(name="photo" type="file")
+				input.btn.btn-outline-primary(type="submit" value="Update")
+
+				div
+					img(src=img+'?'+new Date())
+
+		div.col-5
+			h3=page.title
+			h2=page.topic
+				a.badge(href="/admin/page/view/"+page.id) Return
+			div.jumbotron=page.body
+			img(src=page.img)
+			div.alert.alert-success=page.baner

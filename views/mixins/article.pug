@@ -1,0 +1,15 @@
+mixin greenblock(topic)
+	div.green-parallelepiped
+		//for row in topic.split('\n')
+		h2.text-right(style="position:relative;top:-25px")=topic
+		div.darkblue
+			block
+
+
+mixin articleblock(article)
+	div.article-block
+		h1.caligraphic.color-green.text-right=article.topic
+		div
+			img(src=article.img)
+			for row in article.body.split('\n')
+				p=row

@@ -1,0 +1,9 @@
+extends admin-layout
+block content
+
+	a.btn.btn-outline-primary(href="/admin/page/add") Add page
+	ul#pages-list
+		for page in pages
+			li
+				a(href="/admin/page/view/"+page.id)=page.title?page.title:page.id
+

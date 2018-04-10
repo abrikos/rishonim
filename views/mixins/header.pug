@@ -1,0 +1,15 @@
+mixin header(header)
+	div.row
+		div.col-5
+			img(src=header.img width="360px" style="border:1px solid black")
+		div.col-7
+			div(style="padding-right:20px;")
+				h3.text-uppercase.text-right=header.title
+				h1.caligraphic(style="color:brown;font-size:3em")=header.topic
+				div(style="font-size:1.4em")
+					for row in header.body.split('\n')
+						div=row
+
+	div
+		if block
+			block

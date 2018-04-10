@@ -1,0 +1,44 @@
+extends admin-layout
+block content
+
+	div.row
+		div.col-7
+			h1 PAGE EDIT
+			form#edit-page(enctype="multipart/form-data" method="post")
+				div.form-group
+					input#page-id.form-control(disabled=true value=id)
+				div.form-group
+					label(for="page-title") Title
+					input#page-title.form-control(name="title" value=title)
+				div.form-group
+					label(for="page-topic") Topic
+					input#page-topic.form-control(name="topic" value=topic)
+				div.form-group
+					label(for="page-link") Link
+					input#page-link.form-control(name="link" value=link)
+					a(href="/page/"+link target="_blank") View
+				div.form-group
+					label(for="page-body") Body
+					textarea#page-body.form-control(name="body")=body
+				div.form-group
+					label(for="page-banner") Banner
+					input#page-banner.form-control(name="banner" value=banner)
+				div.form-group
+					label(for="page-visible") Visible
+					input#page-visible.form-control(name="visible" type="checkbox" checked=visible)
+				div.form-group
+					label(for="page-photo") Photo
+					input#page-photo.form-control(name="photo" type="file")
+				div
+					input.btn.btn-outline-primary(type="submit" value="Update")
+
+				div
+					img(src=img+'?'+new Date())
+		div.col-5
+			h2 Articles
+				a.btn.btn-sm.btn-outline-primary(href="/admin/article/add/"+id) Add
+			for article in articles
+				div
+					a(href="/admin/article/view/"+article.id)
+						span=article.title?article.title:article.id
+

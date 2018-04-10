@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<svg version="1.1"
+     height="68px"
+     width="750px"
+     xmlns="http://www.w3.org/2000/svg"
+     >
+    <polygon points="0,0 700,0 750,68 0,68" fill="silver"/>
+</svg>

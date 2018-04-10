@@ -1,0 +1,129 @@
+doctype html
+
+html
+	head
+		link(rel='stylesheet', href='/css/rishonim.css')
+		link(rel='stylesheet', href='/css/bootstrap.min.css')
+		link(href="https://fonts.googleapis.com/css?family=Neucha|Marck+Script|Poor+Story|Roboto" rel="stylesheet")
+		script(src="/js/jquery.min.js")
+		script(src="/js/bootstrap.min.js")
+		title='RISHONIM'+(page?' - '+page.title:'')
+		meta(name="Description" content=page?page.title:"Центр развития")
+		meta(name="Keywords" content="")
+		meta(property="og:type" content="game")
+		meta(property="og:url" content=currentSite)
+		meta(id="og-title" property="og:title" content="")
+		meta(property="og:description" content="")
+		meta(property="og:image" content=currentSite + "/images/logo.jpg")
+		meta(property="og:image:width" content="200")
+		meta(property="og:image:height" content="200")
+		meta(name="viewport"
+		content="width=device-width, initial-scale=0.35, maximum-scale=1.0, user-scalable=no")
+
+	body
+		div#content.container-fluid
+			div.row
+				div.col-2
+					a(href="/")
+						img#logo(src="/images/logo.jpg")
+				div.col-10
+					div.row
+						div.col-8.caligraphic(style="padding-bottom:15px;font-size:2.7em;color:#232F3C")
+							|Всегда идем вперед!
+						div.col-4.text-right(style="font-size:.8em")
+							br
+							div 0502643517
+							div: a(href="mailto:rishonim.center@gmail.ru") rishonim.center@gmail.ru
+					table#topmenu(cellpadding=0 cellspacing=0)
+						tr
+							td
+								a(href="/page/timur-milgrom-ivrit") Иврит
+							td
+								svg(width="53px" height="30px")
+									line(x1="0" y1="100%" x2="60%" y2="20%" style="stroke:white;stroke-width:1")
+							td
+								a(href="/page/kouching") Коучинг
+							td
+								svg(width="53px" height="30px")
+									line(x1="0" y1="100%" x2="60%" y2="20%" style="stroke:white;stroke-width:1")
+							td
+								a(href="#") Отзывы
+							td.triangle(style="width:23px")
+								img(src="/images/top-menu-triangle.svg?")
+
+					div#grayquote.text-right.float-right
+						div Я так давно хотела попасть на такой сеанс, мечтала и искала
+						span Марина Хельми
+
+
+
+
+
+
+
+
+
+
+
+
+
+			block content
+
+
+
+
+
+
+
+
+
+
+
+			include mixins/greencorners
+			+greencorners
+				h1.caligraphic.text-center(style="margin:40px 0 ")
+					|ПОМОГАЯ другим достигнуть ЦЕЛЬ, ты помогаешь, в первую		очередь,				СЕБЕ
+
+			//https://youtu.be/Ddm5U6t3dMs
+			//https://youtu.be/UWytTLnT8Y4
+
+			div#otzyvy
+				div.otzyv
+					div
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/WnpwY6fRaTA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				div.otzyv
+					div
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/Ddm5U6t3dMs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				div.otzyv
+					div
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/UWytTLnT8Y4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+			div.znanie-uverennost(style="width:600px;margin:auto")
+				div.znanie-border(style="font-size:1.7em;text-align:left;padding:10px") Сделай ПЕРВЫЙ шаг
+					br
+					| к твоему УСПЕХУ
+				-let imgs = [1,2,3]
+				-let img = imgs[Math.floor(Math.random()*imgs.length)]
+				img(src=`/images/${img}.jpg` style="left:60px")
+
+			div.row(style="margin-top:40px")
+				div.col-7.text-right
+					include google-map.html
+				div.col-5(style="padding-top:90px")
+					div Нагария
+					div Гаатон, 1
+					div тел. + 972 50-596-5120
+					div тел. + 972 50-647-4172
+
+
+
+			div.text-center(style="margin: 40px 0;font-size:1.7em") Звоните нам!
+				div(style="font-size:1.8em;color:brown") 0502641753
+
+			div.caligraphic.text-center(style="font-size:1.9em")
+				span(style="color:brown") Мы
+				|
+				| не единственные, мы -
+				|
+				span(style="color:brown") Первые!

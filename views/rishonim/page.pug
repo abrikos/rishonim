@@ -1,0 +1,13 @@
+extends layout
+block content
+	include header-mixin
+	include banner-mixin
+	include article-mixin
+	+header(page.header)
+
+	if(page.banner)
+		+banner(page.banner)
+
+	for article in page.articles
+		+greenblock(article.title)
+			+articleblock(article)

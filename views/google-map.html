@@ -1,0 +1,23 @@
+<div id="map" style="width:500px;height: 500px;"></div>
+<script>
+	function initMap() {
+		var position = {};
+		position.lat = 33.005508;
+		position.lng = 35.098713;
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 16,
+			center: position
+		});
+		var image = '/favicon.ico';
+
+		var marker = new google.maps.Marker({
+			position: position,
+			map: map,
+			animation: google.maps.Animation.BOUNCE,
+            icon:image
+		});
+	}
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxDyLV_iktiuqHgXD5WSS4T1LwTlqH8m0&callback=initMap">
+</script>

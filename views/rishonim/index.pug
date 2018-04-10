@@ -1,0 +1,66 @@
+extends layout
+block content
+	include header-mixin
+	include banner-mixin
+	include green-block-mixin
+	+header(page.header)
+		div.caligraphic.text-center(style="margin-top:40px;font-size:2em") Живи сейчас! Слушай сердце! Время бесценно!
+		div.text-right(style="padding-right:20px") Розари ГРИЦКЕВИЧ
+
+
+
+	+greenblock('Центр развития Rishonim это')
+		div.darkblue
+			table#check-boxes
+				tr
+					td.bullet
+					td Авторские методики
+				tr
+					td.bullet
+					td Превосходные результаты
+				tr
+					td.bullet
+					td Индивидуальный подход
+				tr
+					td.bullet
+					td Непринужденнная атмосфера
+
+	h2 ЗНАНИЕ, которое дает УВЕРЕННОСТЬ
+	div.row
+		div.col-6.znanie-uverennost
+			div.znanie-border
+				br
+				|Курс разговорного иврита
+				br
+				|с Тимуром Мильгромом
+			img(src="/images/rishonim/metodika.jpg")
+		div.col-6.znanie-uverennost
+			div.znanie-border Авторская методика
+				br
+				|с метафорическими картами
+				br
+				|Розари Грицкевич
+			img(src="/images/rishonim/kurs.jpg")
+
+
+	+greenblock('Совершим ОТКРЫТИЯ вместе!')
+		div.darkblue
+			div.row
+				div.col-4
+					div.otkrytia
+						div.caligraphic Я Богиня
+						img(src="/images/rishonim/boginya.jpg")
+				div.col-4
+					br
+					br
+					br
+					div.otkrytia
+						div.caligraphic Ваш бизнес
+						img(src="/images/rishonim/buisnes.jpg")
+						div.caligraphic в Израиле
+				div.col-4
+					div.otkrytia
+						div.caligraphic Найди себя
+						img(src="/images/rishonim/naidisebya.jpg")
+
+

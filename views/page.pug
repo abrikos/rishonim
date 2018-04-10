@@ -1,0 +1,15 @@
+extends layout
+block content
+	include mixins/header
+	include mixins/banner
+	include mixins/article
+	include mixins/greencorners
+	+greencorners
+		+header(page)
+
+	if(page.banner)
+		+banner(page.banner)
+
+	for article in page.articles
+		+greenblock(article.title)
+			+articleblock(article)
